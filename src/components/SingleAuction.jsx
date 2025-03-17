@@ -110,12 +110,16 @@
 
 // export default SingleAuction;
 
-
 import { Link } from "react-router-dom";
 import CountDownTimer from "../components/CountDownTimer";
 import { useState } from "react";
 import { RiShoppingBagFill } from "react-icons/ri";
-import { Bs0Circle, BsCoin, BsCurrencyDollar, BsCurrencyRupee } from "react-icons/bs";
+import {
+  Bs0Circle,
+  BsCoin,
+  BsCurrencyDollar,
+  BsCurrencyRupee,
+} from "react-icons/bs";
 import socket from "../socket";
 // eslint-disable-next-line react/prop-types
 const SingleAuction = ({
@@ -203,20 +207,29 @@ const SingleAuction = ({
             )}
 
             {/* Conditionally show Add to Cart or Place Bid button */}
-            {startingPrice === null ? (
-              <button
-                className="bg-color-primary border cursor-pointer border-border-info-color hover:bg-color-danger transition-all text-white text-sm font-bold rounded-md my-auto px-3 py-2 text-center"
-              >
-                <RiShoppingBagFill size={18} className="mt-[-2px]" />
-                <span>Add to Cart</span>
-              </button>
+            {endTime === null ? (
+              <Link to={`/single-auction-detail/${id}`}>
+                <button
+                  className={`flex items-center gap-1 text-white text-sm font-bold rounded-md my-auto px-3 py-2 text-center no-underline
+      ${
+        sellerId === logInUser?._id
+          ? "bg-theme-bg2 text-body-text-color border border-border-info-color"
+          : "bg-color-primary border cursor-pointer border-border-info-color hover:bg-color-danger transition-all"
+      }`}
+                >
+                  <RiShoppingBagFill size={18} className="mt-[-2px]" />
+                  <span>Add to Cart</span>
+                </button>
+              </Link>
             ) : (
               <Link
                 to={`/single-auction-detail/${id}`}
                 className={`flex items-center gap-1 text-white text-sm font-bold rounded-md my-auto px-3 py-2 text-center no-underline
-                  ${sellerId === logInUser?._id
-                    ? "bg-theme-bg2 text-body-text-color border border-border-info-color"
-                    : "bg-color-primary border cursor-pointer border-border-info-color hover:bg-color-danger transition-all"}`}
+                  ${
+                    sellerId === logInUser?._id
+                      ? "bg-theme-bg2 text-body-text-color border border-border-info-color"
+                      : "bg-color-primary border cursor-pointer border-border-info-color hover:bg-color-danger transition-all"
+                  }`}
               >
                 <Bs0Circle size={18} strokeWidth={0.4} className="mt-[-2px]" />
                 <span>Place Bid</span>

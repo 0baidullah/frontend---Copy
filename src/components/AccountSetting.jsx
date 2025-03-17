@@ -47,6 +47,7 @@ const AccountSetting = () => {
     data.append("userType", formData.userType);
     data.append("description", formData.description);
     data.append("phone", formData.phone);
+    
     if (imgRef.current.files[0]) {
       data.append("profilePicture", imgRef.current.files[0]);
     } else {

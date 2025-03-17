@@ -30,6 +30,20 @@ export const deleteCartItem=createAsyncThunk("cart/deleteCartItem",async(id,thun
     }
 })
 
+export const addCartItem=createAsyncThunk("cart/addCartItem",async(id,thunkAPI)=>{
+    try {
+        return await cartService.addCartItem(id);
+        
+    } catch (error) {
+        const message =(error.response && error.response.data.message) || error.message;
+        
+        return thunkAPI.rejectWithValue({message,isError:true});
+        
+    }
+})
+
+
+
 
 const initialState={
     cartItems:[],
@@ -91,14 +105,25 @@ const cartSlice = createSlice({
             state.isError=true;
             state.isSuccess=false;
             state.message=action.payload.message;
-        });
-        
-        
-        
-        
+        })
+        .addCase(addCartItem.pending,(state)=>{
+            state.isLoading=true;
+            state.isError=false;
+            state.isSuccess=false;
+            state.message="";
+        })
+        .addCase(addCartItem.fulfilled,(state)=>{
+            state.isLoading=false;
+            state.isSuccess=true;
+            state.isError=false;
+        })
+        .addCase(addCartItem.rejected,(state,action)=>{
+            state.isLoading=false;
+            state.isError=true;
+            state.isSuccess=false;
+            state.message=action.payload.message;
+        })
     }
 })
-
-
 export const {reset} =cartSlice.actions;
 export default cartSlice.reducer;

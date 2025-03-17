@@ -10,6 +10,7 @@ import { getAllCities } from "../store/city/citySlice";
 import axios from "axios";
 
 
+
 const SearchLocationCategory = () => {
   const [filter, setFilter] = useState({
     location: "",
@@ -17,6 +18,7 @@ const SearchLocationCategory = () => {
     itemName: "",
   });
 
+  const navigate = useNavigate();
   const { categories } = useSelector((state) => state.category);
   const { cities } = useSelector((state) => state.city);
   const dispatch = useDispatch();
@@ -73,6 +75,12 @@ const SearchLocationCategory = () => {
   return (
     <div className="flex justify-center items-center my-5 min-h-[100px]">
       <div className="flex-col   sm:flex-row sm:items-center   bg-[#061224] text-[#7386a8] rounded-md p-2">
+      <button
+          className="bg-theme-color mt-2  hover:bg-color-danger text-white text-sm font-bold  rounded-md my-auto px-3 py-2 mx-3  text-center no-underline border-none"
+          onClick={() => navigate("/near-you")}
+        >
+          Near You
+        </button>
       <select
   required
   id="category"

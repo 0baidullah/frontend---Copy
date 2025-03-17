@@ -7,7 +7,7 @@ import BidsItem from "../components/BidsItem";
 import Notifications from "../components/Notifications";
 import AccountSetting from "../components/AccountSetting";
 import {SellerRoutes} from '../auth/Protected'
-// import PaymentMethod from "../components/PaymentMethod";
+import PaymentMethod from "../components/PaymentMethod";
 import Cart from "../components/Cart";
 import { Routes, Route, Link } from "react-router-dom";
 

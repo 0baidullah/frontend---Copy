@@ -28,13 +28,40 @@ export const deleteCartItem=async(id)=>{
     return response.data.data;
 }
 
+export const addCartItem = async (id) => {
+    try {
+        console.log('id:', id);
+
+        const response = await axios.post(
+            `${API_URL}/cart/${id}`,
+            {},  // Empty body if no data is sent
+            {
+                withCredentials: true,  // Ensure cookies are sent
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}` // Include token if needed
+                }
+            }
+        );
+
+        console.log('response add cart:', response.data);
+        return response.data.data;
+
+    } catch (error) {
+        console.error("Error adding to cart:", error.response?.data || error.message);
+        throw error;
+    }
+};
+
+
 
 
 
 
 const cartService= {
     getCartItems,
-    deleteCartItem
+    deleteCartItem,
+    addCartItem
 }
 
 
