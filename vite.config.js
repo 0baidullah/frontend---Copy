@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   define: {
     'process.env.node': JSON.stringify('production')
+  },
+  build: {
+    target: 'esnext' 
   }
 })
