@@ -64,7 +64,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
           </Route>
 
-          <Route element={<Protected />}>
+          {/* <Route element={<Protected />}> */}
             <Route
               path="/single-auction-detail/:id" element={<SingleAuctionDetail />}
             />
@@ -80,7 +80,7 @@ const App = () => {
                 element={<ManageItems />}
               />
             </Route>
-          </Route>
+          {/* </Route> */}
           {/* <Route element={<AdminRoutes />}> */}
           <Route path="/admin/*" element={<AdminDashboard />} />
 
