@@ -40,7 +40,7 @@ const Userdata = () => {
               <Route path="/notifications" element={<Notifications />} />
               <Route path="/account-settings" element={<AccountSetting />} />
               <Route path="/change-password" element={<ChangePassword />} />
-              {/* <Route path="/payment-method" element={<PaymentMethod />} /> */}
+              <Route path="/payment-method" element={<PaymentMethod />} />
               <Route path="/cart" element={<Cart />} />
     
               {/* <Route path="/logout" element={<ChangePassword />} /> */}

@@ -10,7 +10,11 @@ import { FaUser, FaCirclePlus } from "react-icons/fa6";
 import { IoIosNotifications, IoMdSettings, IoIosListBox } from "react-icons/io";
 import { FaEdit, FaListAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { IoLogOutSharp, IoWalletOutline } from "react-icons/io5";
+import { IoLogOutSharp, IoWalletOutline,  } from "react-icons/io5";
+
+// need order icon
+
+import { BsFillCartCheckFill } from "react-icons/bs";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -113,15 +117,15 @@ const Sidebar = () => {
               </li>
 
          
-              {/* <li>
+              <li>
                 <Link
                   className="flex items-center gap-2  py-2 px-4 rounded-lg cursor-pointer hover:pl-[20px] hover:text-theme-color hover:bg-theme transition-all duration-500"
-                  to="/create-product"
+                  to="/orders"
                 >
-                  <FaCirclePlus size={16} className="text-theme-color" />
-                  Create Product
+                  <BsFillCartCheckFill size={16} className="text-theme-color" />
+                  Orders
                 </Link>
-              </li> */}
+              </li>
             </>
 
           )}

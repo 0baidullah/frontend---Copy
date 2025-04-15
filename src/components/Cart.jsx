@@ -5,14 +5,16 @@ import { getCartItems, reset } from "../store/cart/cartSlice";
 import axios from "axios";
 import { useStripe } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
+import { createOrder } from "../store/order/orderSlice";
+import Deilevery  from "../components/Deilevery"; 
 const Cart = () => {
   const [cartItem, setCartItem] = useState();
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   // const stripe = useStripe();
   const [stripe, setStripe] = useState(null);
-
+  console.log(cartItems, "cart items in cart");
+  
   useEffect(() => {
     const fetchStripe = async () => {
       const stripe = await loadStripe(
@@ -20,16 +22,16 @@ const Cart = () => {
       ); // Replace with your public key
       setStripe(stripe);
     };
-
+    
     fetchStripe();
   }, []);
-
+  
   //console.log(cartItem);
 
   useEffect(() => {
     dispatch(getCartItems());
   }, []);
-
+  
   useEffect(() => {
     if (cartItems) {
       setCartItem(cartItems);
@@ -53,7 +55,7 @@ const Cart = () => {
     ];
     const sendProductData = { id: product._id, lineItems: lineItems };
     const { data } = await axios.post(
-      "http://localhost:8000/api/v1/payments/checkout",
+      "https://food-waste-backend-production.up.railway.app/api/v1/payments/checkout",
       {
         sendProductData,
       },
@@ -65,12 +67,15 @@ const Cart = () => {
     const result = await stripe.redirectToCheckout({
       sessionId: data.id,
     });
-    //console.log(result);
+      dispatch(createOrder({ id: product._id }));
+
+    console.log(result);
 
     if (result.error) {
       //console.log(result.error.message);
     } else {
       alert("succes");
+      console.log("success");
     }
   };
 
@@ -79,12 +84,13 @@ const Cart = () => {
       <h2 className=" text-white font-bold text-xl border-b border-border-info-color pb-3 mb-5 ">
         Your Cart
       </h2>
-      {cartItem?.map((item) => (
+      {cartItem?.map((item) => ( console.log(item, "item in cart"),
         <div
           key={item._id}
           className="flex flex-col gap-2 border rounded-md p-4 border-border-info-color"
         >
           {item.products.map((product) => (
+            console.log(product, "product in cart"),
             <div
               key={product._id}
               className="flex flex-col justify-between gap-5 p-4 md:flex-row items-start md:items-center border-b border-border-info-color"
@@ -110,6 +116,7 @@ const Cart = () => {
                 <button
                   className="bg-theme-color  p-3 rounded-lg text-white font-bold"
                   onClick={() => redirectToCheckout(product)}
+                  // onClick={<Deilevery product={product  }  />}
                 >
                   Go to Checkout
                 </button>

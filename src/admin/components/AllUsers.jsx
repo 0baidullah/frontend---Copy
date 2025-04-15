@@ -30,6 +30,7 @@ const AllUsers = () => {
   // const [users, setUsers] = useState([]);
   const dispatch = useDispatch();
   const { allUser, topSellers, reset } = useSelector((state) => state.user);
+  console.log(allUser, "all users");
   const [filterInput, setFilterInput] = useState("");
   const [filterField, setFilterField] = useState("name");
   const handleFilterChange = (e) => {

@@ -170,7 +170,7 @@ const SingleAuctionDetail = ({ noPadding }) => {
   }
 
   const handleAddToCart = async () => {
-  
+  console.log("Add to cart clicked");
                       // Ensure token is retrieved
    
       dispatch(addCartItem(singleAuction?._id));

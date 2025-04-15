@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const EditAuction = () => {
-  const { id } = useParams();
+  const { id  } = useParams();
   const dispatch = useDispatch();
 
   const { singleAuction, isLoading,message, isError, isSuccess } = useSelector((state) => state.auction);

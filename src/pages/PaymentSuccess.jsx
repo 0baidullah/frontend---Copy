@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { deleteCartItem } from "../store/cart/cartSlice";
 import { updatePaymentStatus } from "../store/auction/auctionSlice";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { createOrder } from "../store/order/orderSlice";
 const PaymentSuccess = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -11,6 +12,11 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     dispatch(updatePaymentStatus(id));
+    
+
+    // dispatch(getCurrentUser());
+    dispatch(createOrder({ id })).unwrap().then(res => console.log("Order created:", res)).catch(err => console.error("Create order error:", err));
+  
     dispatch(deleteCartItem(id));
 
     setTimeout(() => {

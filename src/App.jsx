@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import SingleAuctionDetail from "./pages/SingleAuctionDetail";
 import EditAuction from "./pages/EditAuction";
 import ErrorPage from "./pages/ErrorPage";
+import Order from "./pages/Order";
 import Protected, {
   PublicRoute,
   SellerRoutes,
@@ -73,6 +74,7 @@ const App = () => {
             <Route element={<SellerRoutes />}>
               <Route path="/create-auction" element={<UploadItem />} />
               <Route path="/create-product" element={<UploadProduct />} />
+              <Route path="/orders" element={<Order />} />
               <Route
                 path="/user-profile/manage-items"
                 element={<ManageItems />}

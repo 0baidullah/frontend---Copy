@@ -43,7 +43,7 @@ const Login = () => {
   }, [isSuccess, isError, user]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(formData);
 
     dispatch(login(formData));

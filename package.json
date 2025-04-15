@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
+    "@preline/stepper": "^3.0.0",
     "@reduxjs/toolkit": "^2.2.1",
     "@stripe/react-stripe-js": "^2.7.0",
     "@stripe/stripe-js": "^3.3.0",
@@ -25,6 +26,7 @@
     "js-cookie": "^3.0.5",
     "jspdf": "^2.5.1",
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.487.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-countdown": "^2.3.5",

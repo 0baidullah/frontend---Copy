@@ -317,6 +317,7 @@ const ManageItems = () => {
   const dispatch = useDispatch();
   const { sellerAuction, isLoading } = useSelector((state) => state.auction);
 
+  console.log(sellerAuction, "sellerAuction....");
   useEffect(() => {
     dispatch(getSellerAuction());
     return () => {

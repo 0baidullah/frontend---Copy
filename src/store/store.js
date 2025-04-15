@@ -8,6 +8,7 @@ import bidReducer from './bid/bidSlice';
 import notificationReducer from './notification/notificationSlice';
 import cartReducer from "./cart/cartSlice"
 import userReducer from "./user/userSlice"
+import orderReducer from "./order/orderSlice"
 
 export const store= configureStore({
     reducer: {
@@ -20,9 +21,8 @@ export const store= configureStore({
         notification: notificationReducer,
         cart: cartReducer,
         user:userReducer,
+        order:orderReducer,
         
-
-
         
     }
     ,

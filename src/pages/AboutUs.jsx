@@ -1,36 +1,36 @@
 import { Link } from "react-router-dom";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import aboutimg from "../assets/aboutus.png";
-// import dev1 from "../assets/Obaid.jpg";
-// import dev2 from "../assets/dev2.jpg";
-// import dev3 from "../assets/dev3.jpg";
+import dev1 from "../assets/Obaid.jpg";
+import dev2 from "../assets/Obaid.jpg";
+import dev3 from "../assets/Obaid.jpg";
 import CreateEarnHome from "../components/home/CreateEarnHome";
 
 const AboutUs = () => {
   const devs = [
     {
-      // id: 1,
-      // src: dev1,
-      // name: "Obaidullah",
-      // skill: "Frontend Developer",
-      // https:"www.linkedin.com/in/obaidullah-arshad-b7952922b/",
-      // https:"github.com/0baidullah",
+      id: 1,
+      src: dev1,
+      name: "Obaidullah",
+      skill: "Frontend Developer",
+      https:"www.linkedin.com/in/obaidullah-arshad-b7952922b/",
+      https:"github.com/0baidullah",
     },
     {
-      // id: 2,
-      // src: dev2,
-      // name: "Yasir Mukhtar",
-      // skill: "BackEnd Developer",
-      // link1: "https://www.linkedin.com/in/yasir-mukhtar-85b590228/",
-      // link2: "https://github.com/Yasir-Mukthar",
+      id: 2,
+      src: dev2,
+      name: "Zohaib",
+      skill: "BackEnd Developer",
+      https:"www.linkedin.com/in/obaidullah-arshad-b7952922b/",
+      https:"github.com/0baidullah",
     },
     {
-      // id: 3,
-      // src: dev3,
-      // name: "Hassaan Ali",
-      // skill: "Frontend Developer",
-      // link1: "https://www.linkedin.com/in/hassaanvfx/",
-      // link2: "https://github.com/hassaancode",
+      id: 3,
+      src: dev3,
+      name: "obaidullah",
+      skill: "BackEnd Developer",
+      https:"www.linkedin.com/in/obaidullah-arshad-b7952922b/",
+      https:"github.com/0baidullah",
     },
   ];
 
